@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
+	config.LoadEnv(".env")
+
 	db := config.ConnectDB()
 	defer db.Close()
 

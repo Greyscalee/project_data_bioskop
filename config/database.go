@@ -48,5 +48,23 @@ func ConnectDB() *sql.DB {
 
 	DB = db
 	fmt.Println("Database connected successfully")
+
+	if err := runMigrations(db); err != nil {
+		panic(err)
+	}
+
 	return db
+}
+
+func runMigrations(db *sql.DB) error {
+	query := `
+		CREATE TABLE IF NOT EXISTS bioskop (
+			id SERIAL PRIMARY KEY,
+			name VARCHAR(50) NOT NULL,
+			lokasi VARCHAR(100) NOT NULL,
+			rating INT
+		)
+	`
+	_, err := db.Exec(query)
+	return err
 }
