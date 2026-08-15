@@ -18,7 +18,7 @@ func getEnv(key, fallback string) string {
 }
 
 func buildConnectionString() string {
-	if databaseURL := os.Getenv("DATABASE_URL"); databaseURL != "postgresql://postgres:AqggrGRNyoyIlICkpotQxKTdhpIjaLnu@projectdatabioskop.railway.internal:5432/railway" {
+	if databaseURL := os.Getenv("DATABASE_URL"); databaseURL != "" {
 		return databaseURL
 	}
 
