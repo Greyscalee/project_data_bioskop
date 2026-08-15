@@ -18,7 +18,7 @@ func getEnv(key, fallback string) string {
 }
 
 func buildConnectionString() string {
-	if databaseURL := os.Getenv("DATABASE_URL"); databaseURL != "" {
+	if databaseURL := os.Getenv("DATABASE__UBLIC_URL"); databaseURL != "" {
 		return databaseURL
 	}
 
